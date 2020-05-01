@@ -1,7 +1,7 @@
 # momo_vn
 
 ## Getting Started
-
+* Thank to  dangnhutyen1594@gmail.com
 * Need register your application at momo business home page : https://business.momo.vn
 
 ### 1. Android set up:
