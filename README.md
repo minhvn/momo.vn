@@ -85,7 +85,8 @@ MomoPaymentInfo options = MomoPaymentInfo(
     extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
     isTestMode: true
 );
-*  Call
+```
+*  Open MoMo application
 ```Dart
 try {
     _momoPay.open(options);
