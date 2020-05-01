@@ -1,7 +1,6 @@
 # momo_vn
 
 ## Getting Started
-* Thank to  dangnhutyen1594@gmail.com
 * Need register your application at momo business home page : https://business.momo.vn
 
 ### 1. Android set up:
@@ -53,8 +52,9 @@ override func application(_ app: UIApplication, open url: URL, options: [UIAppli
 
 ### See more setup at: https://developers.momo.vn/#/
 
-## How to user plugin?
-* Step 1: Import :
+## Usage
+* Import
+
 ```Dart
 import 'package:momo_vn/momo_vn.dart';
 ```
@@ -127,3 +127,4 @@ void _setState() {
     Fluttertoast.showToast(msg: "THẤT BẠI: " + response.message.toString(), timeInSecForIos: 4);
   }
 ```
+* Thank to  dangnhutyen1594@gmail.com
