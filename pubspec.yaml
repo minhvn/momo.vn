@@ -1,6 +1,6 @@
 name: momo_vn
-description: Flutter plugin Payment App In App for Momo Payment SDK.
-version: 0.0.1
+description: Integrate open MoMo.VN application for payment. Once completed, the system will record data of success or failure. From there handle the next step.
+version: 1.0.0
 author: Vo Ngoc Minh <minhvo.me@gmail.com>
 homepage: https://github.com/minhvn/momo.vn
 
