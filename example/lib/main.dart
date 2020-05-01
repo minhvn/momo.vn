@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
                   MomoPaymentInfo options = MomoPaymentInfo(
                     merchantname: "Tên đối tác",
                     merchantcode: 'Mã đối tác',
-                    appScheme: "momoumgq20200430",
+                    appScheme: "223423",
                     amount: 6000000000,
                     orderId: '12321312',
                     orderLabel: 'Label để hiển thị Mã giao dịch',
