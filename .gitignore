@@ -3,4 +3,7 @@
 .packages
 .pub/
 .idea/
+ios/Classes/
+android/src/main/
+doc/
 build/
