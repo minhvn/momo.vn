@@ -69,8 +69,6 @@ class MomoVnPluginDelegate(private var registrar: PluginRegistry.Registrar? = nu
                 decoded = String(Base64.getMimeDecoder().decode(extra), Charsets.UTF_8)
             } else if  (Build.VERSION.SDK_INT >= 26) {
                 decoded = android.util.Base64.decode(extra, android.util.Base64.DEFAULT) as String;
-            } else if  (Build.VERSION.SDK_INT >= 8) {
-                decoded = android.util.Base64.decode(extra, android.util.Base64.DEFAULT) as String;
             }
             data.put("extra", decoded)
             sendReply(data)
