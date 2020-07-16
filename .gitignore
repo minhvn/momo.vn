@@ -3,7 +3,6 @@
 .packages
 .pub/
 .idea/
-ios/Classes/
-android/src/main/
+sample_input.txt
 doc/
 build/
