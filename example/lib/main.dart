@@ -50,19 +50,19 @@ class _MyAppState extends State<MyApp> {
                 child: Text('DEMO PAYMENT WITH MOMO.VN'),
                 onPressed: () async {
                   MomoPaymentInfo options = MomoPaymentInfo(
-                    merchantname: "Tên đối tác",
-                    merchantcode: 'Mã đối tác',
-                    appScheme: "223423",
-                    amount: 6000000000,
-                    orderId: '12321312',
-                    orderLabel: 'Label để hiển thị Mã giao dịch',
-                    merchantnamelabel: "Tiêu đề tên cửa hàng",
-                    fee: 0,
-                    description: 'Mô tả chi tiết',
-                    username: 'Định danh user (id/email/...)',
-                    partner: 'merchant',
-                    extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
-                    isTestMode: true
+                      merchantname: "merchantname",
+                      appScheme: "momoxxxx",
+                      merchantcode: 'MOMOxxx',
+                      amount: 60000,
+                      orderId: '12321312',
+                      orderLabel: 'Gói dịch vụ ABCD',
+                      merchantnamelabel: "TRUNG TÂM XYZ",
+                      fee: 0,
+                      description: 'Thanh toán công đoạn A',
+                      username: '091xxxx',
+                      partner: 'merchant',
+                      extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
+                      isTestMode: true
                   );
                   try {
                     _momoPay.open(options);
