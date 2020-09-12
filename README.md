@@ -1,7 +1,8 @@
 # momo_vn
 
 ## Getting Started
-* Need register your application at momo business home page : https://business.momo.vn
+* Need register your application at momo business home page : https://business.momo.vn, detail: https://developers.momo.vn/#/home?id=t%c3%a0i-kho%e1%ba%a3n-doanh-nghi%e1%bb%87p
+* Download testapp, test account at: https://developers.momo.vn/#/docs/testing_information
 
 ### 1. Android set up:
 * Step 1: Request Internet permission at  ```AndroidManifest.xml``` file:
@@ -127,4 +128,3 @@ void _setState() {
     Fluttertoast.showToast(msg: "THẤT BẠI: " + response.message.toString(), timeInSecForIos: 4);
   }
 ```
-* Thank to  dangnhutyen1594@gmail.com
