@@ -6,3 +6,12 @@
 sample_input.txt
 doc/
 build/
+# Miscellaneous
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.atom/
+.buildlog/
+.history
