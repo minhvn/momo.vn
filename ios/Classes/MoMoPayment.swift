@@ -32,7 +32,7 @@ public class MoMoPayment: NSObject {
         print("<MoMoPay> initializing successful - Your merchantcode \(merchantCode)")
     }
     
-    public static func handleOpenUrl(url: URL, sourceApp: String) {
+    public static func handleOpenUrl(url: URL, sourceApp: String) -> Bool {
         //let sourceURI = url.absoluteString! as String
         let sourceURI = url.absoluteString;
         let response = getDictionaryFromUrlQuery(query: sourceURI)
@@ -59,9 +59,11 @@ public class MoMoPayment: NSObject {
             print("<MoMoPay> \(message)")
             NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterTokenReceived"), object: response, userInfo: nil)
             NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: "NoficationCenterTokenReceivedUri"), object: sourceURI, userInfo: nil)
+            return true
         }
         else {
             print("<MoMoPay> Do nothing")
+            return false
         }
     }
     
