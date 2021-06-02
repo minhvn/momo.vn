@@ -4,14 +4,18 @@ version: 1.0.4
 #author: Vo Ngoc Minh <minhvo.me@gmail.com>
 homepage: https://github.com/minhvn/momo.vn
 
+analyzer:
+  enable-experiment:
+    - non-nullable
+
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  eventify: ^0.1.4
+  eventify: ^1.0.0
 
 dev_dependencies:
   flutter_test:

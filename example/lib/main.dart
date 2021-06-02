@@ -1,7 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:momo_vn/momo_vn.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,20 +14,22 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  MomoVn _momoPay;
-  PaymentResponse _momoPaymentResult;
-  String _payment_status;
+  late MomoVn _momoPay;
+  late PaymentResponse _momoPaymentResult;
+  // ignore: non_constant_identifier_names
+  late String _paymentStatus;
   @override
   void initState() {
     super.initState();
     _momoPay = MomoVn();
     _momoPay.on(MomoVn.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _momoPay.on(MomoVn.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _paymentStatus = "";
     initPlatformState();
   }
   Future<void> initPlatformState() async {
     if (!mounted) return;
-    setState(() {
+      setState(() {
     });
   }
 
@@ -40,38 +43,43 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             children: <Widget>[
-              FlatButton(
-                color: Colors.blue,
-                textColor: Colors.white,
-                disabledColor: Colors.grey,
-                disabledTextColor: Colors.black,
-                padding: EdgeInsets.all(8.0),
-                splashColor: Colors.blueAccent,
-                child: Text('DEMO PAYMENT WITH MOMO.VN'),
-                onPressed: () async {
-                  MomoPaymentInfo options = MomoPaymentInfo(
-                      merchantname: "merchantname",
-                      appScheme: "momoxxxx",
-                      merchantcode: 'MOMOxxx',
-                      amount: 60000,
-                      orderId: '12321312',
-                      orderLabel: 'Gói dịch vụ ABCD',
-                      merchantnamelabel: "TRUNG TÂM XYZ",
-                      fee: 0,
-                      description: 'Thanh toán công đoạn A',
-                      username: '091xxxx',
-                      partner: 'merchant',
-                      extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
-                      isTestMode: true
-                  );
-                  try {
-                    _momoPay.open(options);
-                  } catch (e) {
-                    debugPrint(e);
-                  }
-                },
+              Column(
+                children: [
+                  FlatButton(
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    disabledColor: Colors.grey,
+                    disabledTextColor: Colors.black,
+                    padding: EdgeInsets.all(8.0),
+                    splashColor: Colors.blueAccent,
+                    child: Text('DEMO PAYMENT WITH MOMO.VN'),
+                    onPressed: () async {
+                      MomoPaymentInfo options = MomoPaymentInfo(
+                          merchantName: "TTNC&TVKT",
+                          appScheme: "momoumgq20200430",
+                          merchantCode: 'MOMOUMGQ20200430',
+                          partnerCode: 'MOMOUMGQ20200430',
+                          amount: 60000,
+                          orderId: '12321312',
+                          orderLabel: 'Gói khám sức khoẻ',
+                          merchantNameLabel: "HẸN KHÁM BỆNH.VN",
+                          fee: 10,
+                          description: 'Thanh toán hẹn khám chữ bệnh',
+                          username: '0917784784',
+                          partner: 'merchant',
+                          extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
+                          isTestMode: true
+                      );
+                      try {
+                        _momoPay.open(options);
+                      } catch (e) {
+                        debugPrint(e.toString());
+                      }
+                    },
+                  ),
+                ],
               ),
-              Text(_payment_status ?? "CHƯA THANH TOÁN")
+              Text(_paymentStatus.isEmpty ? "CHƯA THANH TOÁN" : _paymentStatus)
             ],
           ),
         ),
@@ -84,17 +92,17 @@ class _MyAppState extends State<MyApp> {
     _momoPay.clear();
   }
   void _setState() {
-    _payment_status = 'Đã chuyển thanh toán';
-    if (_momoPaymentResult.isSuccess) {
-      _payment_status += "\nTình trạng: Thành công.";
-      _payment_status += "\nSố điện thoại: " + _momoPaymentResult.phonenumber;
-      _payment_status += "\nExtra: " + _momoPaymentResult.extra;
-      _payment_status += "\nToken: " + _momoPaymentResult.token;
+    _paymentStatus = 'Đã chuyển thanh toán';
+    if (_momoPaymentResult.isSuccess == true) {
+      _paymentStatus += "\nTình trạng: Thành công.";
+      _paymentStatus += "\nSố điện thoại: " + _momoPaymentResult.phoneNumber.toString();
+      _paymentStatus += "\nExtra: " + _momoPaymentResult.extra.toString();
+      _paymentStatus += "\nToken: " + _momoPaymentResult.token.toString();
     }
     else {
-      _payment_status += "\nTình trạng: Thất bại.";
-      _payment_status += "\nExtra: " + _momoPaymentResult.extra;
-      _payment_status += "\nMã lỗi: " + _momoPaymentResult.status.toString();
+      _paymentStatus += "\nTình trạng: Thất bại.";
+      _paymentStatus += "\nExtra: " + _momoPaymentResult.extra!;
+      _paymentStatus += "\nMã lỗi: " + _momoPaymentResult.status.toString();
     }
   }
   void _handlePaymentSuccess(PaymentResponse response) {
@@ -102,7 +110,7 @@ class _MyAppState extends State<MyApp> {
       _momoPaymentResult = response;
       _setState();
     });
-    Fluttertoast.showToast(msg: "THÀNH CÔNG: " + response.phonenumber, timeInSecForIos: 4);
+    Fluttertoast.showToast(msg: "THÀNH CÔNG: " + response.phoneNumber.toString(), toastLength: Toast.LENGTH_SHORT);
   }
 
   void _handlePaymentError(PaymentResponse response) {
@@ -110,6 +118,6 @@ class _MyAppState extends State<MyApp> {
       _momoPaymentResult = response;
       _setState();
     });
-    Fluttertoast.showToast(msg: "THẤT BẠI: " + response.message.toString(), timeInSecForIos: 4);
+    Fluttertoast.showToast(msg: "THẤT BẠI: " + response.message.toString(), toastLength: Toast.LENGTH_SHORT);
   }
 }

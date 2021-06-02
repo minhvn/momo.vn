@@ -15,3 +15,7 @@ build/
 .atom/
 .buildlog/
 .history
+pubspec.lock
+example/ios/Podfile
+example/ios/Podfile.lock
+example/pubspec.lock

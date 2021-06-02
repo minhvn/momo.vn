@@ -46,7 +46,7 @@ public class SwiftMomoVnPlugin: NSObject, FlutterPlugin {
             "isSuccess" : true,
             "status" : 0,
             "token" : response["data"],
-            "phonenumber" : response["phonenumber"],
+            "phoneNumber" : response["phonenumber"],
             "extra" : response["extra"]
         ])
       }
@@ -54,7 +54,7 @@ public class SwiftMomoVnPlugin: NSObject, FlutterPlugin {
           self.momoFlutterResult?([
               "isSuccess" : false,
               "status" : response["status"],
-              "phonenumber" : response["phonenumber"],
+              "phoneNumber" : response["phonenumber"],
               "extra" : response["extra"]
           ])
       }

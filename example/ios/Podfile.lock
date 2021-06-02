@@ -2,13 +2,19 @@ PODS:
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
+    - Toast
   - momo_vn (0.0.1):
     - Flutter
+  - Toast (4.0.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
   - momo_vn (from `.symlinks/plugins/momo_vn/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Toast
 
 EXTERNAL SOURCES:
   Flutter:
@@ -19,10 +25,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/momo_vn/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  fluttertoast: b644586ef3b16f67fae9a1f8754cef6b2d6b634b
-  momo_vn: f5acb9b881009a7d7aa6cad35accb4e7b7816a6f
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
+  momo_vn: bdc65f55945bf8c2c1a6fe10b27b1d5189a93943
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0
