@@ -61,9 +61,9 @@ class MomoVnPluginDelegate(private var registrar: PluginRegistry.Registrar? = nu
             val data: MutableMap<String, Any> = java.util.HashMap()
             data.put("isSuccess", isSuccess)
             data.put("status", status)
-            data.put("phonenumber", phonenumber)
-            data.put("token", token)
-            data.put("message", message)
+            data.put("phoneNumber", phonenumber.toString())
+            data.put("token", token.toString())
+            data.put("message", message.toString())
             var decoded = ""
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 decoded = String(Base64.getMimeDecoder().decode(extra), Charsets.UTF_8)
@@ -76,7 +76,7 @@ class MomoVnPluginDelegate(private var registrar: PluginRegistry.Registrar? = nu
             val data: MutableMap<String, Any> = java.util.HashMap()
             data.put("isSuccess", false)
             data.put("status", 7);
-            data.put("phonenumber", "")
+            data.put("phoneNumber", "")
             data.put("token", "")
             data.put("message", "")
             data.put("extra", "")
