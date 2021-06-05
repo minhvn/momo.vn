@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 import 'package:flutter/services.dart';
 import 'package:eventify/eventify.dart';
+import 'dart:convert' as convert;
 
 class MomoVn {
   // Response codes from platform
@@ -57,19 +58,10 @@ class MomoVn {
       handler(event.eventData);
     };
     _eventEmitter.on(event, null, cb);
-    _resync();
   }
 
   void clear() {
     _eventEmitter.clear();
-  }
-
-  /// Retrieves lost responses from platform
-  void _resync() async {
-    var response = await _channel.invokeMethod('resync');
-    if (response != null) {
-      _handleResult(response);
-    }
   }
 
   /// Validate payment options
@@ -122,7 +114,8 @@ class PaymentResponse {
     String? phoneNumber = map["phoneNumber"];
     String? data = map["data"];
     String? message = map["message"];
-    String? extra = map["extra"];
+    String? extra = "";
+    extra = map["extra"];
     return new PaymentResponse(isSuccess, status, token, phoneNumber, data, message, extra);
   }
 }

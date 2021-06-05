@@ -2,7 +2,7 @@ name: momo_vn_example
 description: Flutter plugin for Momo Payment SDK.
 version: 0.0.1
 author: Vo Ngoc Minh <minhvo.me@gmail.com>
-homepage: https://henkhambenh.vn
+homepage: minhvn.net
 publish_to: 'none'
 
 analyzer:

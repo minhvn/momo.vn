@@ -10,6 +10,7 @@ import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
 import vn.momo.momo_partner.AppMoMoLib
 import 	java.util.Base64
 
+@Suppress("DEPRECATION")
 class MomoVnPluginDelegate(private var registrar: PluginRegistry.Registrar? = null) : ActivityResultListener {
 
     private var pendingResult: Result? = null
@@ -64,13 +65,7 @@ class MomoVnPluginDelegate(private var registrar: PluginRegistry.Registrar? = nu
             data.put("phoneNumber", phonenumber.toString())
             data.put("token", token.toString())
             data.put("message", message.toString())
-            var decoded = ""
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                decoded = String(Base64.getMimeDecoder().decode(extra), Charsets.UTF_8)
-            } else if  (Build.VERSION.SDK_INT >= 26) {
-                decoded = android.util.Base64.decode(extra, android.util.Base64.DEFAULT) as String;
-            }
-            data.put("extra", decoded)
+            data.put("extra", extra.toString())
             sendReply(data)
         } ?: run {
             val data: MutableMap<String, Any> = java.util.HashMap()

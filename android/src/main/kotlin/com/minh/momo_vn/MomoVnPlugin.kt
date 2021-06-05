@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.minh.momo_vn
 
 import io.flutter.plugin.common.MethodCall

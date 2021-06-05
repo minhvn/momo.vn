@@ -56,16 +56,16 @@ class _MyAppState extends State<MyApp> {
                     onPressed: () async {
                       MomoPaymentInfo options = MomoPaymentInfo(
                           merchantName: "TTNC&TVKT",
-                          appScheme: "momoumgq20200430",
-                          merchantCode: 'MOMOUMGQ20200430',
-                          partnerCode: 'MOMOUMGQ20200430',
+                          appScheme: "MOMOUMGQ111111",
+                          merchantCode: 'MOMOUMGQ111111',
+                          partnerCode: 'MOMOUMGQ111111',
                           amount: 60000,
                           orderId: '12321312',
                           orderLabel: 'Gói khám sức khoẻ',
-                          merchantNameLabel: "HẸN KHÁM BỆNH.VN",
+                          merchantNameLabel: "HẸN KHÁM BỆNH",
                           fee: 10,
-                          description: 'Thanh toán hẹn khám chữ bệnh',
-                          username: '0917784784',
+                          description: 'Thanh toán hẹn khám chữa bệnh',
+                          username: '01234567890',
                           partner: 'merchant',
                           extra: "{\"key1\":\"value1\",\"key2\":\"value2\"}",
                           isTestMode: true
@@ -96,12 +96,12 @@ class _MyAppState extends State<MyApp> {
     if (_momoPaymentResult.isSuccess == true) {
       _paymentStatus += "\nTình trạng: Thành công.";
       _paymentStatus += "\nSố điện thoại: " + _momoPaymentResult.phoneNumber.toString();
-      _paymentStatus += "\nExtra: " + _momoPaymentResult.extra.toString();
+      _paymentStatus += "\nExtra: " + _momoPaymentResult.extra!;
       _paymentStatus += "\nToken: " + _momoPaymentResult.token.toString();
     }
     else {
       _paymentStatus += "\nTình trạng: Thất bại.";
-      _paymentStatus += "\nExtra: " + _momoPaymentResult.extra!;
+      _paymentStatus += "\nExtra: " + _momoPaymentResult.extra.toString();
       _paymentStatus += "\nMã lỗi: " + _momoPaymentResult.status.toString();
     }
   }
