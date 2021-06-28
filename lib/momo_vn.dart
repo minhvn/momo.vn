@@ -157,16 +157,16 @@ class MomoPaymentInfo {
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> json = {
-      "merchantName": this.merchantName,
-      "merchantCode": this.merchantCode,
-      "partnerCode": this.partnerCode,
+      "merchantname": this.merchantName,
+      "merchantcode": this.merchantCode,
+      "partnercode": this.partnerCode,
       "amount": this.amount,
-      "orderId": this.orderId,
-      "orderLabel": this.orderLabel,
+      "orderid": this.orderId,
+      "orderlabel": this.orderLabel,
       "partner": this.partner,
       "fee": this.fee,
       "isTestMode": isTestMode,
-      "merchantNameLabel": merchantNameLabel
+      "merchantnamelabel": merchantNameLabel
     };
     if (Platform.isIOS) {
       json["appScheme"] = appScheme;
