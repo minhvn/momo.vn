@@ -128,8 +128,8 @@ class MomoPaymentInfo {
   String partnerCode;
   String merchantNameLabel;
 
-  double amount;
-  double fee;
+  int amount;
+  int fee;
   String? description;
   String? extra;
   String? username;
