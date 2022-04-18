@@ -1,6 +1,6 @@
 name: momo_vn
 description: Integrate open MoMo.VN application for payment. Once completed, the system will record data of success or failure. From there handle the next step.
-version: 1.0.4
+version: 2.0.2
 #author: Vo Ngoc Minh <minhvo.me@gmail.com>
 homepage: https://github.com/minhvn/momo.vn
 
