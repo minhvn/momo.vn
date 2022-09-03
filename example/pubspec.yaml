@@ -1,7 +1,6 @@
 name: momo_vn_example
 description: Flutter plugin for Momo Payment SDK.
 version: 0.0.1
-author: Vo Ngoc Minh <minhvo.me@gmail.com>
 homepage: minhvn.net
 publish_to: 'none'
 
@@ -14,7 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fluttertoast: ^8.0.7
+  fluttertoast: ^8.0.9
   momo_vn:
     git:
       url: https://github.com/lamdev99/momo.vn.git

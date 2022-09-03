@@ -2,7 +2,7 @@ group 'com.minh.momo_vn'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.4.2'
     repositories {
         google()
         jcenter()
