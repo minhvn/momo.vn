@@ -25,7 +25,7 @@ import android.os.Build
 import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
 import vn.momo.momo_partner.AppMoMoLib
 import 	java.util.Base64
-import android.util.Log
+
 class MomoVnPlugin : MethodCallHandler,FlutterPlugin,ActivityAware,ActivityResultListener   {
     private var pendingResult: Result? = null
     private var pendingReply: Map<String, Any>? = null
