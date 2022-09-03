@@ -34,7 +34,7 @@ class MomoVnPlugin : MethodCallHandler,FlutterPlugin,ActivityAware,ActivityResul
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         Log.d("AppLog","zzzz")
-        ab.addActivityResultListener(this)
+
         val channel = MethodChannel(flutterPluginBinding.binaryMessenger, MomoVnConfig.CHANNEL_NAME)
         channel.setMethodCallHandler(this)
     }
@@ -42,12 +42,11 @@ class MomoVnPlugin : MethodCallHandler,FlutterPlugin,ActivityAware,ActivityResul
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
             MomoVnConfig.METHOD_REQUEST_PAYMENT -> {
-                android.widget.Toast.makeText(activity, "123", Toast.LENGTH_SHORT).show()
                 this.openCheckout(call.arguments, result)
             }
             else -> {
                 result.notImplemented()
-                android.widget.Toast.makeText(activity, "456", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
@@ -57,6 +56,7 @@ class MomoVnPlugin : MethodCallHandler,FlutterPlugin,ActivityAware,ActivityResul
     override fun onAttachedToActivity(activityBinding: ActivityPluginBinding) {
         activity = activityBinding.activity
         ab = activityBinding
+        ab.addActivityResultListener(this)
     }
     override fun onDetachedFromActivityForConfigChanges() {
     }
