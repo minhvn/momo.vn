@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:momo_vn/momo_vn.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MyApp());
@@ -110,7 +109,6 @@ class _MyAppState extends State<MyApp> {
       _momoPaymentResult = response;
       _setState();
     });
-    Fluttertoast.showToast(msg: "THÀNH CÔNG: " + response.phoneNumber.toString(), toastLength: Toast.LENGTH_SHORT);
   }
 
   void _handlePaymentError(PaymentResponse response) {
@@ -118,6 +116,5 @@ class _MyAppState extends State<MyApp> {
       _momoPaymentResult = response;
       _setState();
     });
-    Fluttertoast.showToast(msg: "THẤT BẠI: " + response.message.toString(), toastLength: Toast.LENGTH_SHORT);
   }
 }
