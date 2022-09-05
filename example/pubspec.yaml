@@ -1,7 +1,6 @@
 name: momo_vn_example
 description: Flutter plugin for Momo Payment SDK.
 version: 0.0.1
-author: Vo Ngoc Minh <minhvo.me@gmail.com>
 homepage: minhvn.net
 publish_to: 'none'
 
@@ -14,9 +13,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fluttertoast: ^8.0.7
   momo_vn:
-    path: ../
+    git:
+      url: https://github.com/lamdev99/momo.vn.git
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
